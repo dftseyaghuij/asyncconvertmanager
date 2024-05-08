@@ -1,1 +1,1 @@
-const sample = (arr) => arr[Math.floor(Math.random() * arr.length)];
+const uniqueValues = (arr) => [...new Set(arr)];
