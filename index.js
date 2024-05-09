@@ -1,1 +1,1 @@
-const uniqueValues = (arr) => [...new Set(arr)];
+const isPalindrome = (str) => str === str.split("").reverse().join("");
