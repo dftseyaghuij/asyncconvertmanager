@@ -1,16 +1,19 @@
-function longestCommonPrefix(strs) {
-  if (strs.length === 0) return "";
-  let prefix = strs[0];
-  for (let i = 1; i < strs.length; i++) {
-    let j = 0;
-    while (
-      j < prefix.length &&
-      j < strs[i].length &&
-      prefix.charAt(j) === strs[i].charAt(j)
-    ) {
-      j++;
-    }
-    prefix = prefix.substring(0, j);
+function rotateRight(head, k) {
+  if (!head) return null;
+  let length = 1;
+  let tail = head;
+  while (tail.next) {
+    length++;
+    tail = tail.next;
   }
-  return prefix;
+  k %= length;
+  if (k === 0) return head;
+  let newTail = head;
+  for (let i = 0; i < length - k - 1; i++) {
+    newTail = newTail.next;
+  }
+  const newHead = newTail.next;
+  newTail.next = null;
+  tail.next = head;
+  return newHead;
 }
